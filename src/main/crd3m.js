@@ -74,7 +74,7 @@ let arrowCoordinate = [12,136]
 
 
 // 导入图片坐标
-let importImagePositionCoordinate = ["149,481","223,538","428,540","618,536","808,533","990,531"]
+let importImagePositionCoordinate = ["149,481","428,540","618,536","808,533","990,531","223,538"]
 
 
 // 左上角点击坐标
@@ -325,8 +325,8 @@ function handler(coreldrawHandlerFilePath,model,flag,coordinateArray,filename,nu
     logger.debug("开始删除无关的图")
     // 删除不相关的图
     let moveCoordinate = [];
-    // 13 寸
-    let keepPic = 5;
+    // 12 寸
+    let keepPic = 4;
     moveCoordinate = coreldraw.deleteOtherObject(coordinateArray, keepPic);
 
     let endCoordinate = null;
