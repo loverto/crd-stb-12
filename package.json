@@ -1,17 +1,18 @@
 {
   "name": "crd-stb-12",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CRD手提包12寸排版工具",
   "main": "src/main/main.js",
   "scripts": {
     "electron-rebuild": "electron-rebuild",
+    "changelog": "cp package.json _package.json &&preset=`conventional-commits-detector` && echo $preset && bump=`conventional-recommended-bump -p angular` && echo ${1:-$bump} && npm --no-git-tag-version version ${1:-$bump} &>/dev/null && conventional-changelog -i CHANGELOG.md -s -p ${2:-$preset} && git add CHANGELOG.md package.json package-lock.json && version=`cat package.json` && git commit -m'docs(CHANGELOG): $version' && mv -f _package.json package.json && npm version ${1:-$bump} -m 'chore(release): %s' && git push --follow-tags ",
     "release": "electron-builder --publish always",
     "dev": "vue-cli-service electron:serve",
     "lint": "tslint src/**/*.ts -- --fix",
     "dist-win": "electron-builder --win --ia32",
     "start": "chcp 65001 && electron .",
     "package": "electron-packager . HelloWorld --platform=win32 --arch=ia32 --icon=icon.ico --out=./out --asar --app-version=0.0.1",
-    "rebuildwinax:gyp": "cd ./node_modules/winax && node-gyp rebuild --arch=ia32 --build-from-source --runtime=electron --msvs_version=2017  --target=8.2.3 --dist-url=https://www.electronjs.org/headers",
+    "rebuildwinax:gyp": "cd ./node_modules/winax && node-gyp rebuild --arch=ia32 --build-from-source --runtime=electron --msvs_version=2017  --target=8.2.4 --dist-url=https://www.electronjs.org/headers",
     "rebuildsleep:gyp": "cd ./node_modules/sleep && node-gyp rebuild --runtime=electron --msvs_version=2017  --target=6.0.9 --dist-url=https://npm.taobao.org/mirrors/atom-shell"
   },
   "husky": {
@@ -89,7 +90,7 @@
     "log4js": "6.2.0",
     "core-js": "^3.3.2",
     "dayjs": "^1.7.4",
-    "dm.dll": "1.0.9",
+    "@loverto/dm.dll": "1.1.4",
     "electron-log": "^4.1.1",
     "electron-updater": "4.2.5",
     "element-ui": "^2.13.0",
